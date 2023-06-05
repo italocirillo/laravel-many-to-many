@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index'])->name('dahsboard');
 });
 
 require __DIR__ . '/auth.php';
