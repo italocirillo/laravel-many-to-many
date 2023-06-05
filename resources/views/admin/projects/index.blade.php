@@ -4,7 +4,7 @@
     <div class="container text-center py-3">
         <h1>Fumetti</h1>
         <button class="btn btn-info">
-            {{-- <a href="{{ route('projects.create') }}" class="text-decoration-none text-light ">Crea fumetto</a> --}}
+            <a href="{{ route('admin.projects.create') }}" class="text-decoration-none text-light ">Crea fumetto</a>
         </button>
         <table class="table table-hover m-3">
             <thead>
@@ -37,12 +37,12 @@
                                             <i class="fa-regular fa-eye"></i>
                                         </button>
                                     </a>
-                                    {{-- <a href="{{ route('projects.edit', $project->id) }}"> --}}
-                                    <button type="button" class="btn btn-success">
-                                        <i class="fa-solid fa-marker"></i>
-                                    </button>
+                                    <a href="{{ route('admin.projects.edit', $project->slug) }}">
+                                        <button type="button" class="btn btn-success">
+                                            <i class="fa-solid fa-marker"></i>
+                                        </button>
                                     </a>
-                                    {{-- <form id="deleteForm" action="{{ route('projects.destroy', $project->id) }}"
+                                    <form id="deleteForm" action="{{ route('admin.projects.destroy', $project->slug) }}"
                                         method="POST">
                                         @method('DELETE')
                                         @csrf
@@ -50,7 +50,7 @@
                                             onclick="return confirm('Sei sicuro?')">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
-                                    </form> --}}
+                                    </form>
                                 </li>
                             </ul>
                         </td>
