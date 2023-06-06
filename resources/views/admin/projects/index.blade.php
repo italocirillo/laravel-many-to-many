@@ -9,9 +9,9 @@
             </div>
         @endif
 
-        <h1>Fumetti</h1>
+        <h1>Progetti</h1>
         <button class="btn btn-info">
-            <a href="{{ route('admin.projects.create') }}" class="text-decoration-none text-light ">Crea fumetto</a>
+            <a href="{{ route('admin.projects.create') }}" class="text-decoration-none text-light "> Crea Progetto </a>
         </button>
         <table class="table table-hover m-3">
             <thead>
@@ -53,8 +53,8 @@
                                         method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Sei sicuro?')">
+                                        <button type="submit" class="btn btn-danger btn-delete"
+                                            data-project-title="{{ $project->title }}">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     </form>
@@ -65,5 +65,6 @@
                 @endforeach
             </tbody>
         </table>
+        @include('admin.partials.modal')
     </div>
 @endsection
