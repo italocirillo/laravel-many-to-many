@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Boolfolio Admin</h1>
+    <h1>Boolfolio {{ Auth::user()->name }}</h1>
 @endsection

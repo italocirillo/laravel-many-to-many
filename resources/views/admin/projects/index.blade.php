@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="container text-center py-3">
+
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+
         <h1>Fumetti</h1>
         <button class="btn btn-info">
             <a href="{{ route('admin.projects.create') }}" class="text-decoration-none text-light ">Crea fumetto</a>
