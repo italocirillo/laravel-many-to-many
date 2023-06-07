@@ -19,6 +19,7 @@
                     <th scope="col">ID°</th>
                     <th scope="col">TITOLO</th>
                     <th scope="col">SLUG</th>
+                    <th scope="col">TYPE</th>
                     <th scope="col">DESCRIZIONE</th>
                     <th scope="col">AZIONI</th>
                 </tr>
@@ -32,6 +33,9 @@
                         </td>
                         <td>
                             <h5>{{ $project->slug }}</h5>
+                        </td>
+                        <td>
+                            <h5>{{ $project->type?->name }}</h5>
                         </td>
                         <td>
                             <p>{{ $project->description }}</p>

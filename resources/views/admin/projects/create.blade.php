@@ -32,6 +32,15 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="category">Tipi</label>
+                <select class="form-select" id="category" name="category_id">
+                    <option value=""></option>
+                    @foreach ($types as $type)
+                        <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="description" class="form-label">Descrizione:</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" placeholder="....TEXT..."
                     rows="3" name="description">{{ old('description') }}</textarea>
