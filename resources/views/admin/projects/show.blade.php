@@ -17,11 +17,21 @@
             <p class="card-text">{{ $project->description }}</p>
             <div class="d-flex justify-content-between">
                 @if ($project->type)
-                    <span>Tipo: {{ $project->type->name }}</span>
+                    <span>Tipo: <a
+                            href="{{ route('admin.types.show', $project->type->slug) }}">{{ $project->type->title }}</a></span>
                 @else
                     <span>Nessun tipo</span>
                 @endif
                 <span>{{ $project->slug }}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="border border-primary rounded p-1">
+                    @forelse ($project->technologies as $technology)
+                        <span>{{ $technology->title }}{{ $loop->last ? '' : ',' }}</span>
+                    @empty
+                        <p>Nessuna tecnologia usata</p>
+                    @endforelse
+                </div>
             </div>
         </div>
     </div>

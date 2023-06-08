@@ -36,7 +36,7 @@
                 <select class="form-select @error('type_id') is-invalid @enderror" id="type" name="type_id">
                     <option value=""></option>
                     @foreach ($types as $type)
-                        <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->title }}</option>
                     @endforeach
                 </select>
                 @error('type_id')

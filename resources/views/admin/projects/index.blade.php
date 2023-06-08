@@ -35,7 +35,7 @@
                             <h5>{{ $project->slug }}</h5>
                         </td>
                         <td>
-                            <h5>{{ $project->type?->name }}</h5>
+                            <h5>{{ $project->type?->title }}</h5>
                         </td>
                         <td>
                             <p>{{ $project->description }}</p>
