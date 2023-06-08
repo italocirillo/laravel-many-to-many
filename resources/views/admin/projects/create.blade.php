@@ -32,13 +32,21 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="category">Tipi</label>
-                <select class="form-select" id="category" name="category_id">
+                <label for="type">Tipo</label>
+                <select class="form-select @error('type_id') is-invalid @else is-valid @enderror" id="type"
+                    name="type_id">
                     <option value=""></option>
                     @foreach ($types as $type)
                         <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
+                @error('type_id')
+                    <div class="invalid-feedback">
+                        <p class="error-message">
+                            {{ $message }}
+                        </p>
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione:</label>

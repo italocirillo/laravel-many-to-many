@@ -15,6 +15,14 @@
         <div class="card-body text-center">
             <h5 class="card-title">{{ $project->title }}</h5>
             <p class="card-text">{{ $project->description }}</p>
+            <div class="d-flex justify-content-between">
+                @if ($project->type)
+                    <span>Tipo: {{ $project->type->name }}</span>
+                @else
+                    <span>Nessun tipo</span>
+                @endif
+                <span>{{ $project->slug }}</span>
+            </div>
         </div>
     </div>
 @endsection
