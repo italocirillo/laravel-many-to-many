@@ -8,7 +8,7 @@
     @endif
     <div class="text-center py-4">
         <button class="btn btn-info">
-            <a href="{{ route('admin.projects.index') }}" class="text-decoration-none text-light">Ritorna alla home</a>
+            <a href="{{ url()->previous() }}" class="text-decoration-none text-light">Ritorna indietro</a>
         </button>
     </div>
     <div class="card my-3 m-auto">

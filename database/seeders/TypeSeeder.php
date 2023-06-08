@@ -16,10 +16,10 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        $types = ['Html', 'Css', 'Js', 'Vite', 'Php', 'Laravel'];
+        $types = ['Lavoro', 'Personali', 'Svago', 'Commissioni'];
         foreach ($types as $type) {
             $new_type = new Type();
-            $new_type->name = $type;
+            $new_type->title = $type;
             $new_type->slug = Str::slug($type);
             $new_type->save();
         }
