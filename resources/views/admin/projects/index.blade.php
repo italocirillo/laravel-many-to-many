@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container text-center py-3">
-
         @if (session('message'))
             <div class="alert alert-success">
                 {{ session('message') }}
@@ -20,6 +19,7 @@
                     <th scope="col">TITOLO</th>
                     <th scope="col">SLUG</th>
                     <th scope="col">TYPE</th>
+                    <th scope="col">TECHNOLOGIES</th>
                     <th scope="col">DESCRIZIONE</th>
                     <th scope="col">AZIONI</th>
                 </tr>
@@ -35,7 +35,22 @@
                             <h5>{{ $project->slug }}</h5>
                         </td>
                         <td>
-                            <h5>{{ $project->type?->title }}</h5>
+                            <h5>
+                                @if ($project->type)
+                                    {{ $project->type?->title }}
+                                @else
+                                    <p><i class="fa-solid fa-ban fs-6"></i></p>
+                                @endif
+                            </h5>
+                        </td>
+                        <td>
+                            <h5>
+                                @forelse ($project->technologies as $technology)
+                                    <span>{{ $technology->title }}{{ $loop->last ? '' : ',' }}</span>
+                                @empty
+                                    <p><i class="fa-solid fa-ban fs-6"></i></p>
+                                @endforelse
+                            </h5>
                         </td>
                         <td>
                             <p>{{ $project->description }}</p>
