@@ -4,8 +4,8 @@
     <div class="container">
         <div class="text-center py-4">
             <button class="btn btn-info">
-                <a href="{{ route('admin.types.index') }}" class="text-decoration-none text-light">Ritorna alla lista di
-                    tipi</a>
+                <a href="{{ route('admin.technologies.index') }}" class="text-decoration-none text-light">Ritorna alle
+                    tecnologie</a>
             </button>
         </div>
 
@@ -17,9 +17,9 @@
             </ul>
         @endif
 
-        <form action="{{ route('admin.types.store') }}" method="POST">
+        <form action="{{ route('admin.technologies.store') }}" method="POST">
             @csrf
-            <h3>Crea un tipo</h3>
+            <h3>Crea una tecnologia</h3>
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo:</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror " id="title"

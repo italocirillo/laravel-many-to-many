@@ -72,6 +72,12 @@
                                     <i class="fa-solid fa-tags fa-lg fa-fw"></i> <span>Types</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Str::contains(Route::currentRouteName(), 'admin.technologies') ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.technologies.index') }}">
+                                    <i class="fa-brands fa-connectdevelop fa-lg fa-fw"></i> <span>Technologies</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

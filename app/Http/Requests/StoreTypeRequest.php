@@ -24,7 +24,7 @@ class StoreTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:projects|min:1|max:200',
+            'title' => 'required|unique:types|min:1|max:200',
         ];
     }
 
