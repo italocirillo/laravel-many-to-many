@@ -55,19 +55,19 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white {{ Str::contains(Route::currentRouteName(), 'admin.dashboard') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.dashboard') }}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white {{ Str::contains(Route::currentRouteName(), 'admin.projects') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.projects.index') }}">
                                     <i class="fa-regular fa-folder-open fa-lg fa-fw"></i> <span>Projects</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}"
+                                <a class="nav-link text-white {{ Str::contains(Route::currentRouteName(), 'admin.types') ? 'bg-secondary' : '' }}"
                                     href="{{ route('admin.types.index') }}">
                                     <i class="fa-solid fa-tags fa-lg fa-fw"></i> <span>Types</span>
                                 </a>
