@@ -27,6 +27,7 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|unique:projects|min:1|max:200',
             'description' => 'nullable',
             'type_id' => ['nullable', 'exists:types,id'],
+            'technologies' => ['nullable', 'exists:technologies,id']
         ];
     }
 
@@ -42,6 +43,7 @@ class StoreProjectRequest extends FormRequest
             'title.min' => 'Il titolo deve essere lungo più di :min',
             'title.max' => 'Il titolo deve essere più corto di :max',
             'type_id.exists' => 'Il tipo devo esistere',
+            'technologies.exists' => 'La tecnologia devo esistere',
         ];
     }
 }
