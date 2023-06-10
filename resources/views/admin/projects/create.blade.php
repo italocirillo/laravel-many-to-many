@@ -48,15 +48,23 @@
                 @enderror
             </div>
 
-            <div>
+            <div class="py-2">
                 <h4>Seleziona le tecnologie usate</h4>
                 @foreach ($technologies as $technology)
                     <div class="form-check">
-                        <input class="form-check-input" name="technologies[]" type="checkbox" value="{{ $technology->id }}"
-                            id="technology-{{ $technology->id }}" @checked(in_array($technology->id, old('technologies', [])))>
+                        <input class="form-check-input @error('technologies') is-invalid @enderror" name="technologies[]"
+                            type="checkbox" value="{{ $technology->id }}" id="technology-{{ $technology->id }}"
+                            @checked(in_array($technology->id, old('technologies', [])))>
                         <label class="form-check-label" for="technology-{{ $technology->id }}">
                             {{ $technology->title }}
                         </label>
+                        @error('technologies')
+                            <div class="invalid-feedback">
+                                <p class="error-message">
+                                    {{ $message }}
+                                </p>
+                            </div>
+                        @enderror
                     </div>
                 @endforeach
             </div>
