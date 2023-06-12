@@ -14,6 +14,20 @@
     <div class="card my-3 m-auto">
         <div class="card-body text-center">
             <h5 class="card-title">{{ $project->title }}</h5>
+
+            <div>
+                @if ($project->image)
+                    <img width="100%"
+                        src="{{ str_contains($project->image, 'https://') ? $project->image : asset('storage/' . $project->image) }}"
+                        alt="{{ $project->title }}">
+                @else
+                    <div>
+                        <p> NOT FOUND</p>
+                        <i class="fa-solid fa-image fs-1"></i>
+                    </div>
+                @endif
+            </div>
+
             <p class="card-text">{{ $project->description }}</p>
             <div class="d-flex justify-content-between">
                 @if ($project->type)

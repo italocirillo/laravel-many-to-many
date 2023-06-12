@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project->slug) }}" method="ptoject" enctype="multipart/form-data">
             @method('PUT')
             @csrf
 
@@ -80,6 +80,18 @@
                 <textarea class="form-control @error('description') is-invalid @else is-valid @enderror" id="description"
                     placeholder="....TEXT..." rows="3" name="description">{{ old('description', $project->description) }}</textarea>
             </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Immagine</label>
+                <input type="file" class="form-control" id="image" name="image">
+
+                @if ($ptoject->image)
+                    <div class="my-3">
+                        <img width="300" src="{{ asset('storage/' . $ptoject->image) }}" alt="{{ $ptoject->title }}">
+                    </div>
+                @endif
+            </div>
+
             <button type="submit" class="btn btn-success my-3">Invia</button>
         </form>
     </div>

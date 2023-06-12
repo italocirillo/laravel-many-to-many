@@ -17,6 +17,7 @@
                 <tr>
                     <th scope="col">ID°</th>
                     <th scope="col">TITOLO</th>
+                    <th scope="col">IMMAGINE</th>
                     <th scope="col">SLUG</th>
                     <th scope="col">TYPE</th>
                     <th scope="col">TECHNOLOGIES</th>
@@ -33,6 +34,18 @@
                         </td>
                         <td>
                             <h5>{{ $project->slug }}</h5>
+                        </td>
+                        <td>
+                            @if ($project->image)
+                                <img width="100%"
+                                    src="{{ str_contains($project->image, 'https://') ? $project->image : asset('storage/' . $project->image) }}"
+                                    alt="{{ $project->title }}">
+                            @else
+                                <div>
+                                    <p> NOT FOUND</p>
+                                    <i class="fa-solid fa-image"></i>
+                                </div>
+                            @endif
                         </td>
                         <td>
                             <h5>

@@ -16,7 +16,7 @@
             </ul>
         @endif
 
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <h3>Crea un progetto</h3>
             <div class="mb-3">
@@ -81,6 +81,12 @@
                     </div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Immagine</label>
+                <input type="file" class="form-control" id="image" name="image">
+            </div>
+
             <button type="submit" class="btn btn-success my-3">Invia</button>
         </form>
     </div>
