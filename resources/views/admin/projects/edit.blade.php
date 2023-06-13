@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+    @vite(['resources/js/formFile.js'])
+@endsection
+
 @section('content')
     <div class="container">
         <form action="{{ route('admin.projects.update', $project->slug) }}" method="ptoject" enctype="multipart/form-data">
@@ -85,9 +89,11 @@
                 <label for="image" class="form-label">Immagine</label>
                 <input type="file" class="form-control" id="image" name="image">
 
-                @if ($ptoject->image)
+                @if ($project->image)
                     <div class="my-3">
-                        <img width="300" src="{{ asset('storage/' . $ptoject->image) }}" alt="{{ $ptoject->title }}">
+                        <img class="w-50" id="image-preview"
+                            src="{{ str_contains($project->image, 'https://') ? $project->image : asset('storage/' . $project->image) }}"
+                            alt="{{ $project->title }}">
                     </div>
                 @endif
             </div>

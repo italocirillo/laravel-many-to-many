@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+    @vite(['resources/js/formFile.js'])
+@endsection
+
 @section('content')
     <div class="container">
         <div class="text-center py-4">
@@ -85,6 +89,10 @@
             <div class="mb-3">
                 <label for="image" class="form-label">Immagine</label>
                 <input type="file" class="form-control" id="image" name="image">
+            </div>
+
+            <div>
+                <img class="d-none w-50" id="image-preview" src="" alt="">
             </div>
 
             <button type="submit" class="btn btn-success my-3">Invia</button>
